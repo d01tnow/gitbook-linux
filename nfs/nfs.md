@@ -29,7 +29,7 @@ yum install -y nfs-utils rpcbind
 ## 启动服务 && 设置开机启动
 systemctl start rpcbind && systemctl enable rpcbind
 
-systemctl start nfs-server && systemctl nfs-server
+systemctl start nfs-server && systemctl enable nfs-server
 
 ## 创建目录
 mkdir /elastic/backup
