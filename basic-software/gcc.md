@@ -9,7 +9,7 @@ CentOS7 中升级 gcc 过程如下:
 
 ``` shell
 sudo yum install -y centos-release-scl
-sudo yum install -y devtools-6
+sudo yum install -y devtoolset-6
 scl enable devtoolset-6 bash
 sudo yum list devtoolset-6\*
 gcc -v
