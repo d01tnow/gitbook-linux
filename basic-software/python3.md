@@ -10,11 +10,11 @@
 
 ``` shell
 ## 安装依赖包, 否则 install 报错 "no module named '_ctypes'"
-sudo yum install libffi-devel -y
+sudo yum install -y zlib zlib-devel libffi-devel ncurses ncurses-devel bzip2 bzip2-devel readline readline-devel xz lzma xz-devel sqlite sqlite-devel gdbm gdbm-devel tk tk-devel
 curl -O https://www.python.org/ftp/python/3.7.1/Python-3.7.1.tar.xz
 tar xvJf Python-3.7.1.tar.xz
 cd Python-3.7.1
-./configure --prefix=/usr/local/python3 --enable-shared
+
 vi Modules/Setup.dist
   ## 查找到 SSL
   /SSL
@@ -23,7 +23,8 @@ vi Modules/Setup.dist
   #_ssl _ssl.c \
   # -DUSE_SSL -I$(SSL)/include -I$(SSL)/include/openssl \
   # -L$(SSL)/lib -lssl -lcrypto
-
+  
+./configure --prefix=/usr/local/python3 --enable-shared CFLAGS=-fPIC
 make
 sudo make install
 sudo ln -s /usr/local/python3/bin/python3 /usr/bin/python3
