@@ -10,8 +10,8 @@
 参考[配置说明](https://wiki.openssl.org/index.php/Compilation_and_Installation#PREFIX_and_OPENSSLDIR)
 
 ``` shell
-# 更新 zlib
-sudo yum install -y zlib
+# 更新 zlib, 安装 zlib 开发包
+sudo yum install -y zlib zlib-devel
 
 ## 下载
 curl -LO https://www.openssl.org/source/openssl-1.1.1.tar.gz
