@@ -9,9 +9,10 @@
 * 下载安装
 
 ``` shell
-
+## 安装依赖包, 否则 install 报错 "no module named '_ctypes'"
+sudo yum install libffi-devel -y
 curl -O https://www.python.org/ftp/python/3.7.1/Python-3.7.1.tar.xz
-tar zxJf Python-3.7.1.tar.xz
+tar xvJf Python-3.7.1.tar.xz
 cd Python-3.7.1
 ./configure --prefix=/usr/local/python3 --enable-shared
 vi Modules/Setup.dist
