@@ -20,8 +20,8 @@ tar zxf openssl-1.1.1.tar.gz
 cd openssl-1.1.1
 ## --openssldir 设置安装目录, --prefix 为lib, include, bin 目录的前缀. 两个目录设置成一样.
 ## 两个都指定下, 以免后面配置时候不好找.
-## 使用 zlib 静态库, 生成动态链接库
-./config --openssldir=/usr/local/ssl --prefix=/usr/local/ssl shared zlib
+## 使用 zlib 静态库, 生成动态链接库, 使用 fPIC 编译选项
+./config --openssldir=/usr/local/ssl --prefix=/usr/local/ssl zlib shared CFLAGS=-fPIC
 make && sudo make install
 ## 替换旧版本
 sudo mv /usr/bin/openssl /usr/bin/openssl.bak
