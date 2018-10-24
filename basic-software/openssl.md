@@ -28,8 +28,7 @@ sudo mv /usr/bin/openssl /usr/bin/openssl.bak
 sudo mv /usr/include/openssl /usr/include/openssl.bak
 sudo ln -s /usr/local/ssl/bin/openssl /usr/bin/openssl
 sudo ln -s /usr/local/ssl/include/openssl /usr/include/openssl
-sudo vi /etc/ld.so.conf.d/openssl.conf
-  /usr/local/ssl/lib
+echo /usr/local/ssl/lib | sudo tee -a /etc/ld.so.conf.d/openssl.conf
 sudo ldconfig -v | grep openssl
 openssl version -a
 ```

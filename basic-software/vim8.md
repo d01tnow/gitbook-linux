@@ -6,27 +6,29 @@
 
 * 先[升级gcc](./gcc.md)
 * 如果要支持 python3. 先[安装python3](./python3.md)
-* 安装 ctags: sudo yum install -y ctags
+* 安装vim-x11
 * 下载安装vim8
 
 ``` bash
+## 安装 vim-X11 支持 X11 , clipboard, xterm_clipboard
+sudo yum-builddep -y vim-X11
 ## 下载最新源码
-git clone --depth=1 https://github.com/vim/vim.git
-cd vim
+git clone --depth=1 https://github.com/vim/vim.git && cd vim
 ## 先确认 python config 目录. 很重要
 ## CentOS7 默认的 python2.7.5 的 config 路径: /usr/lib64/python2.7/config
 ## python3 的 config : /usr/local/python3/lib/python3.7/config-3.7m-x86_64-linux-gnu/
-./configure --prefix=/usr/local/vim8 \
+## lua5.3 头文件默认安装到 /usr/local/include, 通过设置 LUA_PRIFIX=/usr/local 告知 vim 安装程序
+## LDFLAGS=-L/usr/local/ssl/lib 是为了指示 gcc 链接器找到 python3.7m.so 链接的 ssl 动态库
+LDFLAGS=-L/usr/local/ssl/lib LUA_PREFIX=/usr/local ./configure --prefix=/usr/local/vim8 \
   --with-features=huge \
   --enable-multibyte \
   --enable-cscope \
   --enable-luainterp=yes \
-  --enable-pythoninterp=yes \
-  --with-python-config-dir=/usr/lib64/python2.7/config/ \
-  --enable-python3interp=yes \
-  --with-python3-config-dir=/usr/local/python3/lib/python3.7/config-3.7m-x86_64-linux-gnu/ \
-  --enable-rubyinterp=yes \
-  --enable-perlinterp=yes
+  --enable-pythoninterp=dynamic \
+  --with-python-config-dir=/usr/lib64/python2.7/config \
+  --enable-python3interp=dynamic \
+  --with-python3-config-dir=/usr/local/python3/lib/python3.7/config-3.7m-x86_64-linux-gnu \
+  --enable-gui=auto
 
 make
 sudo make install
