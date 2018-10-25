@@ -10,6 +10,8 @@
 curl -R -O http://www.lua.org/ftp/lua-5.3.5.tar.gz
 tar zxf lua-5.3.5.tar.gz && cd lua-5.3.5 && make linux test
 sudo make install
+sudo ln -sf /usr/local/bin/lua /usr/bin/lua
+sudo ln -sf /usr/local/bin/luac /usr/bin/luac
 lua -v
 ## lua 头文件默认安装在: /usr/local/include
 ## lua 库文件默认安装在: /usr/local/lib
