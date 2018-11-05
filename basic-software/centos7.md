@@ -81,8 +81,8 @@ sudo rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
 sudo rpm -Uvh https://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm
 ## 查看内核相关包
 yum --disablerepo="*" --enablerepo="elrepo-kernel" list available
-## 安装主线稳定版(mainline-stable)
-sudo yum --enablerepo=elrepo-kernel install -y kernel-ml
+## 安装主线稳定版(mainline-stable), 如果需要 kernel-devel 那么, 在下面一行命令尾部增加 kernel-ml-devel
+sudo yum --disablerepo="*" --enablerepo="elrepo-kernel" install -y kernel-ml
 ## 修改grub
 sudo sed -i 's/GRUB_DEFAULT=saved/GRUB_DEFAULT=0/' /etc/default/grub
 ## 创建内核配置
@@ -98,4 +98,6 @@ rpm -q kernel
 sudo yum install yum-utils
 ## 使用 yum-utils 中的 package-cleanup 卸载旧内核, 保留最新的 2 个内核
 sudo package-cleanup --oldkernels --count=2
+## 如果需要 kernel-devel 包
+#sudo yum install -y "kernel-devel-uname-r == $(uname -r)"
 
