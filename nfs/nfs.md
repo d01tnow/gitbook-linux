@@ -44,7 +44,7 @@ chown -R user1 /elastic/bakcup
 ``` shell
 ### 格式1: 目录 可访问的网段(参数列表)
 ### 格式2: [共享的目录] [主机名1或IP1(参数列表)] [主机名2或IP2(参数列表)]
-echo "/elastic/backup 192.168.39.0/24(rw,no_root_squash)" >> /etc/exports
+echo "/elastic/backup 192.168.39.0/24(rw,no_root_squash)" | sudo tee /etc/exports
 
 ## 刷新并使能配置
 exportfs -a
@@ -94,7 +94,7 @@ showmount -e 192.168.39.10
 mount -t nfs 192.168.39.10:/elastic/backup /elastic/backup
 
 ## 设置开机自动挂载
-echo "192.168.39.10:/elastic/backup /elastic/backup nfs defaults 0 0" >> /etc/fstab
+echo "192.168.39.10:/elastic/backup /elastic/backup nfs defaults 0 0" | sudo tee /etc/fstab
 
 ## 查看挂载
 df -h
