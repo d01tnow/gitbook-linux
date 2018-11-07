@@ -9,12 +9,17 @@
   * Debian, Ubuntu, Mint: apt-get install python-pip
 * 升级 pip: sudo pip install --upgrade pip
 * 安装 powerline. sudo pip install powerline-status
-* 安装 powerline 字体. git clone https://github.com/powerline/fonts && ./fonts/install.sh
+* 安装 powerline 字体. git clone --depth=1 https://github.com/powerline/fonts && ./fonts/install.sh
 * 配置 ~/.bashrc.
 
   ```shell
 
-  echo -e "if [ -f \`which powerline-daemon\` ]; then \n \
+  echo -e " if [ -e /usr/share/terminfo/x/xterm-256color ]; then \n \
+    \texport TERM='xterm-256color' \n \
+    else \n \
+    \texport TERM='xterm-color' \n \
+    fi \n\n \
+    if [ -f \`which powerline-daemon\` ]; then \n \
     \tpowerline-daemon -q \n \
     \tPOWERLINE_BASH_CONTINUATION=1 \n \
     \tPOWERLINE_BASH_SELECT=1 \n \
