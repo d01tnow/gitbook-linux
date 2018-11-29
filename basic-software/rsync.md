@@ -4,7 +4,7 @@
 
 rsync 可以在中断之后恢复传输；它只传输源文件和目标文件之间不一致的部分；rsync 可以执行完整备份或增量备份。更棒的是，在所有风格的 UNIX 上都可以使用 rsync，包括 Mac OS X，所以很容易连接任何系统。
 
-rsync 有两种同步方式: 使用 shell(ssh 或 rsh) 或者使用 rsync 的 daemon 方式. 如果是使用 shell 方式, 推荐使用 ssh, 并采用**免密**方式.
+rsync 有两种同步方式: 使用 shell(ssh 或 rsh, 需要安装 rsync, 但无需启动服务) 或者使用 rsync 的 daemon 方式(需要 rsync 作为服务启动). 如果是使用 shell 方式, 推荐使用 ssh, 并采用**免密**方式.
 它和 scp 的主要区别是: rsync 是同步工具, scp 是拷贝工具. rsync 不支持远程到远程的同步, scp 支持远程到远程的拷贝.
 
 ## 常用参数
