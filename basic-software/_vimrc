@@ -27,7 +27,8 @@ Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-surround'
 " gcc (普通模式), gc (可视模式), gcu(撤销上次注释), gcgc(撤销注释当前行和邻近的上下两行)
 Plug 'https://tpope.io/vim/commentary.git'
-Plug 'https://github.com/scrooloose/nerdtree.git'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 " colorscheme 管理插件
 Plug 'flazz/vim-colorschemes'
 " 安装完成后, cd ~/.vim/plugged/YouCompleteMe && ./install.py -all
