@@ -10,7 +10,7 @@
 " 更新自身: PlugUpgrade
 " 列出所有插件:PlugStatus
 
-
+if isdirectory(expand('$HOME/.vim/plugged'))
 call plug#begin('~/.vim/plugged')
 " 其他插件
 " 非常快的文件搜索插件 fzf
@@ -45,8 +45,9 @@ else
 endif
 " 所有插件需要在下面这行之前
 call plug#end() " 必须
+endif # 判断插件目录是否存在
 
-" for Shougo/deoplete.nvim 
+" for Shougo/deoplete.nvim
 let g:deoplete#enable_at_startup = 1
 
 " vim 启用 powerline 效果, 需要安装 powerline fonts
@@ -181,7 +182,7 @@ set nobackup  " 修改时不备份
 " 默认的 mapleader="\"
 let mapleader=";"
 vmap <C-c> "+y
-nmap <leader>tr :NERDTreeToggle<CR>  
+nmap <leader>tr :NERDTreeToggle<CR>
 
 " 按 ,ev 打开配置文件
 nmap <leader>ev :e $MYVIMRC<CR>
