@@ -75,8 +75,8 @@ endif
 
 " 配色方案
 set background=dark
-colorscheme gruvbox
-"colorscheme desert
+"colorscheme gruvbox
+colorscheme desert
 "colorscheme molokai
 "colorscheme phd
 
