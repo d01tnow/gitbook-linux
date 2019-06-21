@@ -10,7 +10,8 @@
 " 更新自身: PlugUpgrade
 " 列出所有插件:PlugStatus
 
-if isdirectory(expand('$HOME/.vim/plugged'))
+
+if isdirectory(expand('$HOME/.vim/plugged')) 
 call plug#begin('~/.vim/plugged')
 " 其他插件
 " 非常快的文件搜索插件 fzf
@@ -26,7 +27,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-surround'
 " gcc (普通模式), gc (可视模式), gcu(撤销上次注释), gcgc(撤销注释当前行和邻近的上下两行)
-Plug 'https://tpope.io/vim/commentary.git'
+Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 " colorscheme 管理插件
@@ -45,7 +46,8 @@ else
 endif
 " 所有插件需要在下面这行之前
 call plug#end() " 必须
-endif # 判断插件目录是否存在
+
+endif
 
 " for Shougo/deoplete.nvim
 let g:deoplete#enable_at_startup = 1
@@ -184,7 +186,7 @@ let mapleader=";"
 vmap <C-c> "+y
 nmap <leader>tr :NERDTreeToggle<CR>
 
-" 按 ,ev 打开配置文件
+" 按 <leader>ev 打开配置文件
 nmap <leader>ev :e $MYVIMRC<CR>
-" 按 ,sv 重新加载配置文件
+" 按 <leader>sv 重新加载配置文件
 nmap <leader>sv :so $MYVIMRC<CR>
