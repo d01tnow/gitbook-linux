@@ -11,7 +11,7 @@
 " 列出所有插件:PlugStatus
 
 
-if isdirectory(expand('$HOME/.vim/plugged')) 
+if isdirectory(expand('$HOME/.vim/plugged'))
 call plug#begin('~/.vim/plugged')
 " 其他插件
 " 非常快的文件搜索插件 fzf
@@ -101,7 +101,9 @@ set pastetoggle=<F3>
 " 启用鼠标模式. 鼠标选择内容复制到剪贴板. 但是启用行号时, 会把行号也选上.
 " 如果要带行号, 用鼠标选
 " 如果不要带行号, 使用 "*yny 复制 n 行或者可视模式下选择后 "*y
-set mouse=v
+if has(mouse)
+    set mouse=v
+endif
 " 默认使用选择缓存区寄存器 "*. 即 y,p 和系统选择缓冲器进行数据交换
 " unnamedplus
 if has('clipboard')
@@ -170,13 +172,14 @@ set fileencoding=utf-8 " 编辑文件的编码格式
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,cp936,gb2312  " 打开文件的编码列表
 
 " 代码折叠
-set foldenable  " 启用折叠
-set foldmethod=syntax  " 使用语法高亮定义代码折叠
-setlocal foldlevel=1  " 设置折叠层数
-set foldlevelstart=99 " 打开文件时不折叠
-" 使用空格来开关折叠
-nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
-
+if has(folding)
+    set foldenable  " 启用折叠
+    set foldmethod=syntax  " 使用语法高亮定义代码折叠
+    setlocal foldlevel=1  " 设置折叠层数
+    set foldlevelstart=99 " 打开文件时不折叠
+    " 使用空格来开关折叠
+    nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+endif
 " 备份
 set nobackup  " 修改时不备份
 
