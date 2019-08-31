@@ -39,11 +39,28 @@ Plug 'plasticboy/vim-markdown'
 Plug 'suan/vim-instant-markdown'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  " 需要安装 
+  Plug 'zchee/deoplete-jedi'
+  Plug 'neomake/neomake'
+  let g:neomake_python_enabled_markers = ['pylint']
+  " https://jdhao.github.io/2018/09/05/centos_nvim_install_use_guide/
+  " 代码跳转
+  " <leader>d: goto definition
+  " <leader>n: show the usage of name or method
+  " <leader>r: rename a name
+  " K: check documentation of class or method
+  Plug 'davidhalter/jedi-vim'
+  let g:jedi#completions_enable=0
+
+  let g:jedi#use_splits_not_buffers="right"
 else
   Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+Plug 'jiangmiao/auto-pairs'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'machakann/vim-highlightedyank'
 " 所有插件需要在下面这行之前
 call plug#end() " 必须
 
