@@ -40,34 +40,40 @@ Plug 'suan/vim-instant-markdown'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   " 需要安装 
-  Plug 'zchee/deoplete-jedi'
   Plug 'neomake/neomake'
   let g:neomake_python_enabled_markers = ['pylint']
+
+
   " https://jdhao.github.io/2018/09/05/centos_nvim_install_use_guide/
   " 代码跳转
   " <leader>d: goto definition
   " <leader>n: show the usage of name or method
   " <leader>r: rename a name
   " K: check documentation of class or method
-  Plug 'davidhalter/jedi-vim'
-  let g:jedi#completions_enable=0
-
-  let g:jedi#use_splits_not_buffers="right"
 else
   Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+
+Plug 'zchee/deoplete-go', {'do': 'make'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'machakann/vim-highlightedyank'
+"Plug 'ervandew/supertab'
+"let g:SuperTabRetainCompletionType = 2
+"let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+
+
+let g:deoplete#sources#go#gocode_binary=$GOPATH.'/bin/gocode'
+let g:deoplete#sources#go#sort_class=['package', 'func', 'type', 'var', 'const']
+
+let g:deoplete#enable_at_startup = 1
 " 所有插件需要在下面这行之前
 call plug#end() " 必须
 
 endif
 
-" for Shougo/deoplete.nvim
-let g:deoplete#enable_at_startup = 1
 
 " vim 启用 powerline 效果, 需要安装 powerline fonts
 " git clone https://github.com/powerline/fonts.git && sudo ./fonts/install.sh
@@ -203,7 +209,6 @@ set nobackup  " 修改时不备份
 
 " map
 " 默认的 mapleader="\"
-let mapleader=";"
 vmap <C-c> "+y
 nmap <leader>tr :NERDTreeToggle<CR>
 
