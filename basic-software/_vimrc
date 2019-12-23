@@ -15,12 +15,12 @@ if isdirectory(expand('$HOME/.vim/plugged'))
 call plug#begin('~/.vim/plugged')
 " 其他插件
 " 非常快的文件搜索插件 fzf
-" 安装: git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
+" 安装: git clone https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Plugin options
-Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+Plug 'nsf/gocode', { 'rtp': 'vim' }
 Plug 'junegunn/vim-easy-align'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -118,7 +118,7 @@ set nocompatible
 " 配置在保存时生效
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 " 设置行号开关键, 便于用鼠标选择即拷贝时不带行号, 不带缩进线
-:noremap <F2> <Esc>:set nu!<CR>:set relativenumber!<CR>:IndentLinesToggle<CR>
+:noremap <F4> <Esc>:set nu!<CR>:set relativenumber!<CR>:IndentLinesToggle<CR>
 " 粘贴模式开关键
 set pastetoggle=<F3>
 
