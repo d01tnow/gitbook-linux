@@ -35,7 +35,7 @@ set backspace=indent,eol,start  " 退格键可以跨越行
 set whichwrap=h,l,b,s,<,>,[,]  " 跨行移动
 set completeopt=longest,menu  " 设置智能补全
 set wildmenu  " 自动补全命令时使用菜单式列表
-set iskeyword+=@,#,$,%,-,_  " 带有这些符号的单词不要被换行分隔                                                                 
+set iskeyword+=@,#,$,%,-,_  " 带有这些符号的单词不要被换行分隔
 set scrolloff=3  " 光标到顶部或底部保持3行距离
 
 " encoding
@@ -52,3 +52,21 @@ set fileencodings=utf-8,ucs-bom,gb18030,gbk,cp936,gb2312  " 打开文件的编�
 " 粘贴模式开关键
 set pastetoggle=<F3>
 
+" 启用鼠标模式. 鼠标选择内容复制到剪贴板. 但是启用行号时, 会把行号也选上.
+" 如果要带行号, 用鼠标选
+" 如果不要带行号, 使用 "*yny 复制 n 行或者可视模式下选择后 "*y
+if has('mouse')
+    set mouse=v
+endif
+" 默认使用选择缓存区寄存器 "*. 即 y,p 和系统选择缓冲器进行数据交换
+" unnamedplus
+if has('clipboard')
+    if has('unnamedplus')  " When possible use + register for copy-paste
+        set clipboard=unnamed,unnamedplus
+    else         " On mac and Windows, use * register for copy-paste
+        set clipboard=unnamed
+    endif
+endif
+
+" 备份
+set nobackup  " 修改时不备份
