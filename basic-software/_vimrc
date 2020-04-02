@@ -111,7 +111,6 @@ colorscheme desert
 
 
 ""-------------------------------- 通用 ------------------------------------------
-" set paste  " 粘贴模式, 粘贴时保持格式
 
 " 不要使用 vi 的键盘模式, 使用 vim 自己的
 set nocompatible
@@ -120,6 +119,7 @@ set nocompatible
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 " 设置行号开关键, 便于用鼠标选择即拷贝时不带行号, 不带缩进线
 :noremap <F4> <Esc>:set nu!<CR>:set relativenumber!<CR>:IndentLinesToggle<CR>
+set paste  " 粘贴模式, 粘贴时保持格式
 " 粘贴模式开关键
 set pastetoggle=<F3>
 

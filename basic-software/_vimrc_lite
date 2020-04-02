@@ -49,6 +49,7 @@ set fileencodings=utf-8,ucs-bom,gb18030,gbk,cp936,gb2312  " 打开文件的编�
 " 设置行号开关键, 便于用鼠标选择即拷贝时不带行号, 不带缩进线
 ":noremap <F4> <Esc>:set nu!<CR>:set relativenumber!<CR>:IndentLinesToggle<CR>
 :noremap <F4> <Esc>:set nu!<CR>
+set paste " 开启粘贴模式
 " 粘贴模式开关键
 set pastetoggle=<F3>
 
