@@ -278,7 +278,6 @@ tmux_conf_copy_to_os_clipboard=false
 #set -g history-limit 10000
 
 # start with mouse mode enabled
-# 鼠标选择需要按 shift
 set -g mouse on
 
 # force Vi mode
@@ -295,3 +294,35 @@ set -g mode-keys vi
 
 # move status line to top
 #set -g status-position top
+
+## 拷贝下面(取消注释)到 ~/.tmux.conf 的最后一行
+## tmux 插件管理
+## 安装方法: git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+## 添加一下配置, run -b '~/.tmux/plugins/tpm/tpm' 一定要在最后一行
+## 快捷键, 默认 prefix 是 ctrl-b
+## prefix shift-i      # install
+## prefix shift-u      # update
+## prefix alt-u        # uninstall plugins not on the plugin list
+## List of plugins
+#set -g @plugin 'tmux-plugins/tpm'
+#set -g @plugin 'tmux-plugins/tmux-sensible'
+## 保存会话插件
+## 快捷键:
+## prefix ctrl-s # 保存
+## prefix ctrl-r # 恢复
+#set -g @plugin 'tmux-plugins/tmux-resurrect'
+#
+##定时备份恢复插件
+#set -g @plugin 'tmux-plugins/tmux-continuum'
+#
+##配置插件
+## tmux-resurrect
+#set -g @resurrect-save-bash-history 'on'
+#set -g @resurrect-capture-pane-contents 'on'
+#set -g @resurrect-strategy-vim 'session'
+#
+## tmux-continuum
+#set -g @continuum-restore 'on'
+#
+##run -b '~/.tmux/plugins/tpm/tpm'
+#
