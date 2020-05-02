@@ -175,7 +175,7 @@ set incsearch " 输入搜索内容时就显示搜索结果
 
 set nu  " 打开行号
 set relativenumber " 打开相对行号
-set nowrap  "禁止折行
+"set nowrap  "禁止折行
 set autoindent  " 继承前一行的缩进
 set smartindent  " 为 C 程序提供自动缩进
 " 使用 :retab 命令重新处理 tab 和 空格
