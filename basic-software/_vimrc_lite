@@ -24,6 +24,8 @@ set showmatch  " 高亮匹配的括号
 set hlsearch  " 高亮显示被搜索字符
 set incsearch " 输入搜索内容时就显示搜索结果
 set nu  " 打开行号
+set relativenumber " 打开相对行号
+"set nowrap  "禁止折行
 set autoindent  " 继承前一行的缩进
 set smartindent  " 为 C 程序提供自动缩进
 " 使用 :retab 命令重新处理 tab 和 空格
@@ -47,8 +49,8 @@ set fileencodings=utf-8,ucs-bom,gb18030,gbk,cp936,gb2312  " 打开文件的编�
 
 
 " 设置行号开关键, 便于用鼠标选择即拷贝时不带行号, 不带缩进线
-":noremap <F4> <Esc>:set nu!<CR>:set relativenumber!<CR>:IndentLinesToggle<CR>
-:noremap <F4> <Esc>:set nu!<CR>
+:noremap <F4> <Esc>:set nu!<CR>:set relativenumber!<CR>:IndentLinesToggle<CR>
+":noremap <F4> <Esc>:set nu!<CR>
 set paste " 开启粘贴模式
 " 粘贴模式开关键
 set pastetoggle=<F3>
