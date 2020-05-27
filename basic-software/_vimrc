@@ -15,13 +15,12 @@ if isdirectory(expand('$HOME/.vim/plugged'))
 call plug#begin('~/.vim/plugged')
 " 其他插件
 " 非常快的文件搜索插件 fzf
-" 安装: git clone https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
+" 安装: git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'SirVer/ultisnips'
 " Plugin options
-Plug 'nsf/gocode', { 'rtp': 'vim' }
+Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 Plug 'junegunn/vim-easy-align'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -36,8 +35,6 @@ Plug 'flazz/vim-colorschemes'
 " 安装完成后, cd ~/.vim/plugged/YouCompleteMe && ./install.py -all
 "Plug 'Valloric/YouCompleteMe'
 Plug 'Yggdroot/indentLine'
-Plug 'plasticboy/vim-markdown'
-Plug 'suan/vim-instant-markdown'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   " 需要安装 
@@ -70,8 +67,10 @@ let g:deoplete#sources#go#gocode_binary=$GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#sort_class=['package', 'func', 'type', 'var', 'const']
 
 let g:deoplete#enable_at_startup = 1
+
 Plug 'godlygeek/tabular' "必要插件，安装在vim-markdown前面
-Plug 'plasticboy/vim-markdown'
+"Plug 'plasticboy/vim-markdown'
+"Plug 'suan/vim-instant-markdown'
 " markdown-toc 插件
 Plug 'mzlogin/vim-markdown-toc'
 "在当前光标后生成目录
@@ -80,9 +79,9 @@ Plug 'mzlogin/vim-markdown-toc'
 ":UpdateToc
 "取消储存时自动更新目录
 let g:vmt_auto_update_on_save = 0
-Plug 'ferrine/md-img-paste.vim'
+Plug 'ferrine/md-img-paste.vim' 
 "设置默认储存文件夹。这里表示储存在当前文档所在文件夹下的'pic'文件夹下，相当于 ./pic/
-let g:mdip_imgdir = 'pic'
+let g:mdip_imgdir = 'pic' 
 "设置默认图片名称。当图片名称没有给出时，使用默认图片名称
 let g:mdip_imgname = 'image'
 
@@ -127,6 +126,7 @@ colorscheme desert
 
 
 ""-------------------------------- 通用 ------------------------------------------
+" set paste  " 粘贴模式, 粘贴时保持格式
 
 " 不要使用 vi 的键盘模式, 使用 vim 自己的
 set nocompatible
@@ -134,8 +134,7 @@ set nocompatible
 " 配置在保存时生效
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 " 设置行号开关键, 便于用鼠标选择即拷贝时不带行号, 不带缩进线
-:noremap <F4> <Esc>:set nu!<CR>:set relativenumber!<CR>:IndentLinesToggle<CR>
-set paste  " 粘贴模式, 粘贴时保持格式
+:noremap <F2> <Esc>:set nu!<CR>:set relativenumber!<CR>:IndentLinesToggle<CR>
 " 粘贴模式开关键
 set pastetoggle=<F3>
 
