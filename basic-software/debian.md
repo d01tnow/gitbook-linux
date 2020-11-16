@@ -47,6 +47,8 @@ sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install
 
 # 修改主题
 sed -i 's/robbyrussell/ys/g' ~/.zshrc
+# 或者
+sed -i 's/robbyrussell/bira/g' ~/.zshrc
 
 # 安装zsh-autosuggestions语法历史记录插件
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -54,14 +56,12 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.
 # 安装zsh-syntax-highlighting高亮插件
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-# 启用插件
-vi ~/.zshrc
-# 查找到 plugins 行, /(git)
-# 修改为 plugins=(git extract z zsh-syntax-highlighting zsh-autosuggestions)
-# 保存. :x
-# 重新加载 .zshrc
-. ~/.zhsrc
 
+# 启用插件
+sed -i 's/plugins=(git)/plugins=(git extract z zsh-syntax-highlighting zsh-autosuggestions)/g' ~/.zshrc
+
+# 重新加载 rc
+vi ~/.zshrc
 ```
 
 ## 开发工具
