@@ -219,6 +219,11 @@ set termencoding=utf-8  " 终端显示的编码
 set fileencoding=utf-8 " 编辑文件的编码格式
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,cp936,gb2312  " 打开文件的编码列表
 
+" json, markdown 文件取消隐藏字符
+" 手动命令 :set cole&
+autocmd FileType json,markdown let g:indentLine_conceallevel=0
+autocmd FileType javascript,python,c,cpp,java,vim,shell let g:indentLine_conceallevel=2
+
 " 代码折叠
 if has('folding')
     set foldenable  " 启用折叠
