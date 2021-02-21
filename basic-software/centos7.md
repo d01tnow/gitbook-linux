@@ -99,5 +99,4 @@ sudo yum install yum-utils
 ## 使用 yum-utils 中的 package-cleanup 卸载旧内核, 保留最新的 2 个内核
 sudo package-cleanup --oldkernels --count=2
 ## 如果需要 kernel-devel 包
-#sudo yum install -y "kernel-devel-uname-r == $(uname -r)"
-
+# sudo yum install -y "kernel-devel-uname-r == $(uname -r)"
